@@ -1,4 +1,4 @@
-name: MSBuild-Analysis
+name: MSVC-Analysis
 
 on:
   push:
@@ -16,12 +16,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
       with:
-        vs-version: '[16.4,16.5)'
-
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: cpp
+        vs-version: '[16.7,]'
 
     - name: Build project
       run: msbuild MSBuildSolution.sln /t:rebuild
@@ -30,6 +25,3 @@ jobs:
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: sarif
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
