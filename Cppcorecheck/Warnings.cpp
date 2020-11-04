@@ -34,6 +34,12 @@ void C26814(NoClassEnum badEnum) {
 
 }
 
+void ContinueInFalseLoop() {
+	while (false) {
+		continue;
+	}
+}
+
 void C26815() {
 
 }

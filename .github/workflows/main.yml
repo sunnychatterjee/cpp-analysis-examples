@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -16,7 +16,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
       with:
-        vs-version: '[16.4,]'
+        vs-version: '[16.4,16.5)'
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
