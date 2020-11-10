@@ -14,6 +14,16 @@ int main()
 	return 0;
 }
 
+void RawPointerAssignment() {
+	// C26400: No Raw Pointer Assignment (r.11)
+	// C26409: Avoid call new or delete explicitly (r.11)
+	char* buffer = new char[30];
+
+	// BUG: FIX
+	// C26481: Don't use pointer arithmetic. Use span instead (bounds.1)
+	buffer[0] = 'a';
+}
+
 struct MyStruct {
 	int x = 3;
 	double y = 2.0;
@@ -30,7 +40,8 @@ enum NoClassEnum {
 	Value2,
 };
 
-void C26814(NoClassEnum badEnum) {
+// C26812: The enum 'NoClassEnum' is unscoped. Prefer 'enum class' over 'enum' (Enum.3)
+void C26812(NoClassEnum badEnum) {
 
 }
 

@@ -1,13 +1,7 @@
 <Project>
-  <ItemDefinitionGroup Condition="'$(PlatformToolsetVersion)'&gt;='142'">
-    <ClCompile>
-      <AdditionalOptions>
-        /analyze
-        /analyze:autolog:extsarif
-        /analyze:ruleset$(SolutionDir)All.ruleset
-      </AdditionalOptions>
-      <PreprocessorDefinitions>CODE_ANALYSIS;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
-      <TreatSpecificWarningsAsErrors />
-    </ClCompile>
-  </ItemDefinitionGroup>
+	<PropertyGroup>
+		<RunCodeAnalysis>true</RunCodeAnalysis>
+		<!-- Force generation of Sarif output only used in IDE -->
+		<VCCodeAnalysisUX>true</VCCodeAnalysisUX>
+	</PropertyGroup>
 </Project>
