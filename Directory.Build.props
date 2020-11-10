@@ -1,5 +1,7 @@
 <Project>
 	<PropertyGroup>
 		<RunCodeAnalysis>true</RunCodeAnalysis>
+		<!-- Force generation of Sarif output only used in IDE -->
+		<VCCodeAnalysisUX>true</VCCodeAnalysisUX>
 	</PropertyGroup>
 </Project>
