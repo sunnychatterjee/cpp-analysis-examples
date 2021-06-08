@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+// update...
+
 int main()
 {
 	int* p = 0;
@@ -28,7 +30,24 @@ struct MyStruct {
 	int x = 3;
 	double y = 2.0;
 	bool z = false;
+	constexpr void nonConstMember() noexcept {}
+	constexpr void constMember() const noexcept {}
 };
+
+void UseConstArguments(
+	MyStruct* constPointer,
+	MyStruct* nonConstPointer,
+	MyStruct& constRef,
+	MyStruct& nonConstRef) noexcept
+{
+	if (constPointer && nonConstPointer)
+	{
+		constPointer->constMember();
+		nonConstPointer->nonConstMember();
+		constRef.constMember();
+		nonConstRef.nonConstMember();
+	}
+}
 
 MyStruct global;
 MyStruct& getRef() {
