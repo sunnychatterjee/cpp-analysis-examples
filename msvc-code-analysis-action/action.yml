@@ -1,0 +1,14 @@
+name: 'MSVC Code Analysis Action'
+description: 'Setup MSVC to produce Code Analysis Sarif files for use in github/codeql-action/upload-sarif@v1'
+inputs:
+  sarif-output:
+    description: 'Intermediate folder to produce Sarif files for upload.'
+    required: true
+    default: '${{ github.workspace }}/out/sarif'
+  ruleset:
+    description: 'Ruleset file to use during analysis.'
+    required: false
+    default: 'NativeRecommendedRules.ruleset'
+runs:
+  using: 'node12'
+  main: 'index.js'

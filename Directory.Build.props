@@ -1,7 +1,6 @@
 <Project>
 	<PropertyGroup>
-		<RunCodeAnalysis>true</RunCodeAnalysis>
-		<!-- Force generation of Sarif output only used in IDE -->
-		<VCCodeAnalysisUX>true</VCCodeAnalysisUX>
+		<OutDir>$(SolutionDir)\out\msbuild\$(Platform)\$(Configuration)\</OutDir>
+		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
 	</PropertyGroup>
 </Project>

@@ -6,22 +6,34 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  config: Release
+  arch: x86
+
 jobs:
   build:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repo
+      uses: actions/checkout@v2
 
-    - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Add MSVC to PATH
+      uses: ilammy/msvc-dev-cmd@v1
       with:
-        vs-version: '[16.7,]'
+        arch: '${{ env.arch }}'
+        toolset: '14.29'
+
+    - name: Initialize MSVC Code Analysis
+      uses: ./msvc-code-analysis-action
+      with:
+        sarif-output: out/results
+        ruleset: All.ruleset
 
     - name: Build project
-      run: msbuild MSBuildSolution.sln /t:rebuild
+      run: msbuild MSBuildSolution.sln /p:Configuration=${{ env.config }} /p:Platform=${{ env.arch }} /t:rebuild
 
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: sarif
+        sarif_file: out/results

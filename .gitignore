@@ -1,6 +1,4 @@
 .vs
 *.vcxproj.user
-sarif
 out
-x64
-Debug
+obj
