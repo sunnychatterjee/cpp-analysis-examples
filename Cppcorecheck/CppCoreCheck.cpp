@@ -2,8 +2,8 @@
 //
 
 #include <iostream>
-
-// update...
+#include <vector>
+#include <optional>
 
 int main()
 {
@@ -64,8 +64,16 @@ void C26812(NoClassEnum badEnum) {
 
 }
 
-void C26815() {
+std::optional<std::vector<int>> getTempOptVec() {
+	return {};
+}
 
+void C26815() {
+	// C26815: There is a dangling pointer that is the result of an unnamed temporary that has been destroyed.
+	for (auto i : *getTempOptVec())
+	{
+		std::cout << i << std::endl;
+	}
 }
 
 void C26816() {
