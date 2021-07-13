@@ -31,7 +31,7 @@ function findExecutableOnPath(executable) {
   var paths = process.cwd() + ';' + process.env.PATH;
   for (const pathDir of paths.split(';')) {
     const executablePath = path.join(pathDir, executable);
-    if (fs.existsSync(clPath) == true) {
+    if (fs.existsSync(executable) == true) {
       return executablePath;
     }
   }
