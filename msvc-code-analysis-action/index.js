@@ -154,9 +154,7 @@ function configureGeneralProject() {
   // fine cl.exe on the corresponding EspXEngine.dll
   const clPath = findExecutableOnPath('cl.exe');
   const espXEngine = findEspXEngine(clPath);
-  addArg(clArgs, util.format('/analyze:plugin%s',espXEngine));
-
-  clArgs.push(quoteCompilerArg());
+  addArg(clArgs, util.format('/analyze:plugin%s', espXEngine));
 
   // find ruleset directory that ships inside of Visual Studio
   const rulesetDirectory = findRulesetDirectory(clPath);
