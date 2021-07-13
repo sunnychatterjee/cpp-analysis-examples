@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-env:
-  results: out/results
-
 jobs:
   build:
     runs-on: windows-latest
@@ -26,7 +23,7 @@ jobs:
     - name: Initialize MSVC Code Analysis
       uses: ./msvc-code-analysis-action
       with:
-        sarif-output: ${{ env.results }}
+        results: ${{ github.workspace }}
         ruleset: NativeRecommendedRules.ruleset
 
     - name: Build project
@@ -35,4 +32,4 @@ jobs:
     - name: Upload SARIF results
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: ${{ env.results }}
+        sarif_file: ${{ github.workspace }}
