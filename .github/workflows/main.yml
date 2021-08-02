@@ -21,7 +21,7 @@ jobs:
       uses: lukka/run-vcpkg@v7
       with:
         setupOnly: true
-        vcpkgCommitId: caea17de9196f8bd343efb496b1820e7438d1f83
+        vcpkgGitCommitId: caea17de9196f8bd343efb496b1820e7438d1f83
 
     - name: Initialize MSVC Code Analysis
       uses: microsoft/msvc-code-analysis-action@main
