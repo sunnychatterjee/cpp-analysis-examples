@@ -27,7 +27,7 @@ jobs:
       uses: microsoft/msvc-code-analysis-action@beta
       with:
         results: ${{ github.workspace }}
-        ruleset: NativeRecommendedRules.ruleset
+        ruleset: All.ruleset
 
     - name: Build project
       run: msbuild MSBuildSolution.sln /p:Configuration=Release /p:Platform=x64 /t:rebuild
