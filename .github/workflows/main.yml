@@ -24,7 +24,7 @@ jobs:
         toolset: '14.29'
 
     - name: Initialize MSVC Code Analysis
-      uses: microsoft/msvc-code-analysis-action@main
+      uses: microsoft/msvc-code-analysis-action@beta
       with:
         results: ${{ github.workspace }}
         ruleset: NativeRecommendedRules.ruleset
