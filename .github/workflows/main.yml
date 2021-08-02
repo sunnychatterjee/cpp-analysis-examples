@@ -24,10 +24,10 @@ jobs:
         toolset: '14.29'
 
     - name: Initialize MSVC Code Analysis
-      uses: ./msvc-code-analysis-action
+      uses: microsoft/msvc-code-analysis-action@beta
       with:
-        sarif-output: ${{ env.results }}
-        ruleset: NativeRecommendedRules.ruleset
+        results: ${{ github.workspace }}
+        ruleset: All.ruleset
 
     - name: Build project
       run: msbuild MSBuildSolution.sln /p:Configuration=Release /p:Platform=x64 /t:rebuild
@@ -35,4 +35,4 @@ jobs:
     - name: Upload SARIF results
       uses: github/codeql-action/upload-sarif@v1
       with:
-        sarif_file: ${{ env.results }}
+        sarif_file: ${{ github.workspace }}
