@@ -17,11 +17,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Add MSVC to the PATH
-      uses: lukka/run-vcpkg@v7
+    - name: Add MSVC to PATH
+      uses: ilammy/msvc-dev-cmd@v1
       with:
-        setupOnly: true
-        vcpkgGitCommitId: caea17de9196f8bd343efb496b1820e7438d1f83
+        arch: x86_amd64
+        toolset: '14.29'
 
     - name: Initialize MSVC Code Analysis
       uses: microsoft/msvc-code-analysis-action@main
