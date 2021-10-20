@@ -1,6 +1,0 @@
-<Project>
-	<PropertyGroup>
-		<OutDir>$(SolutionDir)\out\msbuild\$(Platform)\$(Configuration)\</OutDir>
-		<IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
-	</PropertyGroup>
-</Project>
