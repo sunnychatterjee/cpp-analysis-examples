@@ -1,5 +1,5 @@
-cmake_minimum_required (VERSION 3.20.5)
-project (CppCoreCheck)
+cmake_minimum_required(VERSION 3.20.5)
+project(CppCoreCheck)
 
 add_library (${PROJECT_NAME}
   CppCoreCheck.cpp
