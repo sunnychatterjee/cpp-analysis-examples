@@ -19,16 +19,15 @@ jobs:
     - name: Checkout action
       uses: actions/checkout@v2.3.4
 
-    - name: Initialize sample CMake Project
+    - name: Initialize & Build
       uses: lukka/run-cmake@v3
       with:
         cmakeListsTxtPath: ${{ github.workspace }}/CMakeLists.txt
         buildDirectory: ${{ env.build }}
         cmakeGenerator: VS16Win64
-        buildWithCMake: false
       
-    - name: Run action
-      id: run_action
+    - name: Run Analysis
+      id: run-analysis
       continue-on-error: true
       uses: microsoft/msvc-code-analysis-action@main
       with:
