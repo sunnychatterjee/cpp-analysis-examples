@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="Ruleset to test out github actions" Description="Currently only targetting CppCoreCheck." ToolsVersion="16.0">
+<RuleSet Name="Ruleset to test out github actions" Description="Currently only targetting CppCoreCheck." ToolsVersion="17.0">
   <Rules AnalyzerId="Microsoft.Analyzers.NativeCodeAnalysis" RuleNamespace="Microsoft.Rules.Native">
     <Rule Id="C26400" Action="Warning" />
     <Rule Id="C26401" Action="Warning" />
@@ -88,5 +88,6 @@
     <Rule Id="C26819" Action="Warning" />
     <Rule Id="C26820" Action="Warning" />
     <Rule Id="C26821" Action="Warning" />
+    <Rule Id="C6011" Action="Warning" />
   </Rules>
 </RuleSet>
