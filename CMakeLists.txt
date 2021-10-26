@@ -3,3 +3,4 @@ project(CppAnalysisExamples)
 
 add_subdirectory(CodeQL)
 add_subdirectory(CppCoreCheck)
+add_subdirectory(CppConDemo)
